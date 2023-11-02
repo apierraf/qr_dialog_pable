@@ -33,24 +33,27 @@ class _QrViewState extends State<QrView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          flex: 5,
-          child: QRView(
-            key: qrKey,
-            onQRViewCreated: onQRViewCreated,
+    return SizedBox(
+      width: MediaQuery.sizeOf(context).width,
+      child: Column(
+        children: [
+          Expanded(
+            flex: 5,
+            child: QRView(
+              key: qrKey,
+              onQRViewCreated: onQRViewCreated,
+            ),
           ),
-        ),
-        Expanded(
-          flex: 1,
-          child: Center(
-            child: (result != null)
-                ? Text('Barcode Type: Data: ${result!.code}')
-                : const Text('Scan a code'),
-          ),
-        )
-      ],
+          Expanded(
+            flex: 1,
+            child: Center(
+              child: (result != null)
+                  ? Text('Barcode Type: Data: ${result!.code}')
+                  : const Text('Scan a code'),
+            ),
+          )
+        ],
+      ),
     );
   }
 
